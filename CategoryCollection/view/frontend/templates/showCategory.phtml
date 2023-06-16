@@ -1,0 +1,14 @@
+<?php
+    // echo "<b>All Categories:</b><br/><br/>";
+    $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+    $categoryFactory = $objectManager->create('Magento\Catalog\Model\ResourceModel\Category\CollectionFactory');
+    $categories = $categoryFactory->create()                              
+        ->addAttributeToSelect('*')
+        ->setStore($this->_storeManager->getStore()); //categories from current store will be fetched
+    $sno = 1;
+    foreach ($categories as $category){
+        // echo '<pre>';print_r($category->getData());
+        // echo '<b>'.$sno.':</b> '.$category->getName().'<br/>';
+        // $sno++;
+    }
+?>
